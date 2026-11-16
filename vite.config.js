@@ -1,2 +1,6 @@
-import { defineConfig } from 'vite';
-export default defineConfig({ base: '/Cap-cuu-115/' });
+
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  base: '/cap-cuu-benh-nhan-gan-day/'
+})
