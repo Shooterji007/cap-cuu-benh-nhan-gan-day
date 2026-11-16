@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#c91525" />
+    <meta name="description" content="CẤP CỨU 115 - Tra cứu bệnh viện và phòng khám đa khoa gần bạn." />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <title>CẤP CỨU 115 | Tìm cơ sở y tế gần bạn</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Cấp cứu 115 - Trang chủ">
+          <span class="brand-mark">✚</span>
+          <span><strong>CẤP CỨU 115</strong><small>Tra cứu cơ sở y tế</small></span>
+        </a>
+        <a class="call-115" href="tel:115">GỌI 115</a>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">HỖ TRỢ TÌM KIẾM CƠ SỞ Y TẾ</span>
+            <h1>Tìm cơ sở y tế<br><em>gần bạn nhất</em></h1>
+            <p>Định vị vị trí của bạn để tìm bệnh viện và phòng khám đa khoa xung quanh.</p>
+            <button id="locateBtn" class="primary-btn">◎ ĐỊNH VỊ VỊ TRÍ CỦA TÔI</button>
+            <p id="status" class="status" role="status">Bật GPS để bắt đầu tìm kiếm.</p>
+          </div>
+          <div class="hero-symbol" aria-hidden="true"><div class="pulse">✚</div><span>115</span></div>
+        </section>
+
+        <section class="search-panel" aria-label="Tìm kiếm cơ sở y tế">
+          <div class="section-heading">
+            <div><span class="eyebrow">TRA CỨU</span><h2>Cơ sở y tế quanh bạn</h2></div>
+            <span id="resultCount" class="count">0 kết quả</span>
+          </div>
+          <div class="search-row">
+            <input id="searchInput" type="search" placeholder="Nhập tên bệnh viện hoặc phòng khám đa khoa..." />
+            <button id="searchBtn" class="secondary-btn">Tìm kiếm</button>
+          </div>
+          <div class="filter-row">
+            <label for="radiusSelect">Phạm vi tìm kiếm</label>
+            <select id="radiusSelect">
+              <option value="5">Dưới 5 km (ưu tiên)</option>
+              <option value="10">Mở rộng 10 km</option>
+              <option value="20">Mở rộng 20 km</option>
+              <option value="50">Mở rộng 50 km</option>
+            </select>
+            <span class="source-note">Dữ liệu bản đồ: OpenStreetMap</span>
+          </div>
+          <div id="map" class="map"></div>
+          <div id="results" class="results">
+            <div class="empty-state">Chưa có kết quả. Hãy định vị để tìm cơ sở y tế gần bạn.</div>
+          </div>
+        </section>
+
+        <section class="report-section">
+          <div>
+            <span class="eyebrow">CÙNG CỘNG ĐỒNG CẬP NHẬT</span>
+            <h2>Thông tin chưa chính xác?</h2>
+            <p>Gửi phản ánh về địa chỉ, số điện thoại, giờ hoạt động hoặc tình trạng cơ sở. Thông tin sẽ được kiểm tra trước khi cập nhật.</p>
+          </div>
+          <form id="reportForm" class="report-form">
+            <label>Tên cơ sở y tế<input name="facility" required placeholder="Tên bệnh viện/phòng khám" /></label>
+            <label>Loại phản ánh
+              <select name="issue_type">
+                <option value="phone">Số điện thoại</option>
+                <option value="address">Địa chỉ</option>
+                <option value="hours">Giờ hoạt động</option>
+                <option value="status">Tình trạng hoạt động</option>
+                <option value="other">Thông tin khác</option>
+              </select>
+            </label>
+            <label>Nội dung phản ánh<textarea name="details" required rows="3" placeholder="Mô tả thông tin cần điều chỉnh..."></textarea></label>
+            <label>Thông tin liên hệ (không bắt buộc)<input name="contact" placeholder="Email hoặc số điện thoại" /></label>
+            <button class="primary-btn" type="submit">GỬI PHẢN ÁNH</button>
+            <p id="reportStatus" class="status" role="status"></p>
+          </form>
+        </section>
+
+        <section class="notice">
+          <strong>Lưu ý quan trọng</strong>
+          <p>CẤP CỨU 115 là công cụ hỗ trợ tra cứu thông tin cơ sở y tế, không phải hệ thống điều phối cấp cứu và không xác nhận khả năng tiếp nhận cấp cứu theo thời gian thực. Khi cần cấp cứu, hãy gọi 115 hoặc số cấp cứu tại địa phương. Nếu tình trạng nguy hiểm, không trì hoãn việc tìm trợ giúp để sử dụng ứng dụng.</p>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-brand">✚ CẤP CỨU 115</div>
+        <div>Miễn phí tra cứu cho người dân</div>
+        <nav><a href="#privacy">Quyền riêng tư</a><a href="#terms">Điều khoản</a><a href="mailto:hotro@capcuu115.vn">Liên hệ</a></nav>
+        <small>Thông tin cơ sở y tế có thể chưa đầy đủ hoặc thay đổi. Vui lòng xác minh trực tiếp trước khi di chuyển.</small>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
